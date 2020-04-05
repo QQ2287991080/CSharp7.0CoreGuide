@@ -13,9 +13,16 @@ namespace CSharp7._0CoreGuide.App
         {
             {
                 //测试多播委托
-                Test.Invoker();
+                //Test.Invoker();
             }
 
+            {
+                //测试协变和逆变
+                CovariantAndContravariant.Invoker();
+            }
+            {
+                Event.Invoker();
+            }
             Console.ReadKey();
         }
     }
