@@ -54,6 +54,10 @@
       <Project>{0AF1BAC2-634C-4DB0-9DFF-32EBD28E2561}</Project>
       <Name>Chapter4</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Chapter6\Chapter6.csproj">
+      <Project>{314A613C-6053-4642-B6BC-8F2739F6AD54}</Project>
+      <Name>Chapter6</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
