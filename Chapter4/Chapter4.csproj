@@ -44,6 +44,7 @@
     <Compile Include="CovariantAndContravariant.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Lambda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

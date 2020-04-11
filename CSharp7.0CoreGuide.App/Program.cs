@@ -18,10 +18,14 @@ namespace CSharp7._0CoreGuide.App
 
             {
                 //测试协变和逆变
-                CovariantAndContravariant.Invoker();
+                //CovariantAndContravariant.Invoker();
             }
             {
-                Event.Invoker();
+                //Event.Invoker();
+            }
+            {
+                //测试lamdba表达式
+                Lambda.Invoker();
             }
             Console.ReadKey();
         }
