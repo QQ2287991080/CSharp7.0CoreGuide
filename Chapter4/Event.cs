@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Chapter4
 {
     /// <summary>
@@ -23,10 +23,15 @@ namespace Chapter4
             {
                 StockZero stockZero = new StockZero("Zero");
                 stockZero.Price = 30;
+#if DEBUG
                 stockZero.PriceCharged += Stock_changed;
+#endif
+#if TRACE
                 stockZero.Price = 25;
+#endif
             }
         }
+        //[Conditional("DEBUG")]
         private static void Stock_changed(object sender, PriceChangedEventArgs e)
         {
 
