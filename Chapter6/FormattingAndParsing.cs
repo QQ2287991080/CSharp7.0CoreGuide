@@ -87,11 +87,11 @@ namespace Chapter6
                      NumberStyles和DateTimeStyles的工作方式 ：它们提供了一些自定义的设置。
                      */
                     //例如允许括号或者货币符号出现在输入字符串中（默认这两个选项都是false）
-                    int minusTwo = int.Parse("(2)", NumberStyles.Integer | NumberStyles.AllowParentheses);
-                    Console.WriteLine(minusTwo);
-                    //decimal point = decimal.Parse("  5.20", NumberStyles.Currency, CultureInfo.GetCultureInfo("en-GB"));
-                    decimal point = decimal.Parse("  5.20", NumberStyles.Currency);
-                    Console.WriteLine(point);
+                    //int minusTwo = int.Parse("(2)", NumberStyles.Integer | NumberStyles.AllowParentheses);
+                    //Console.WriteLine(minusTwo);
+                    ////decimal point = decimal.Parse("  5.20", NumberStyles.Currency, CultureInfo.GetCultureInfo("en-GB"));
+                    //decimal point = decimal.Parse("  5.20", NumberStyles.Currency);
+                    //Console.WriteLine(point);
                 }
                 {
                     //IFormatProvider和ICustomFormatter
@@ -99,8 +99,91 @@ namespace Chapter6
                      实现IFormatProvider和ICustomFormatter，就能编写自定义的格式提供器（该自定义格式提供器可以和现有的配合工作）
                      */
 
-                    IFormatProvider fp = new WordFormatProvider();
-                    Console.WriteLine(string.Format(fp, "{0:C} in words is{0:W}", -123.45));
+                    //IFormatProvider fp = new WordFormatProvider();
+                    //Console.WriteLine(string.Format(fp, "{0:C} in words is{0:W}", -123.45));
+                }
+
+                {
+                    //数字格式字符串
+                    //Console.WriteLine("数字格式字符串");
+                    //Console.WriteLine("====================G或g====================");
+                    //Console.WriteLine(string.Format("{0:G}", 1.2345)); 
+                    //Console.WriteLine(string.Format("{0:G}", 0.00001)); 
+                    //Console.WriteLine(string.Format("{0:g}", 0.00001)); 
+                    //Console.WriteLine(string.Format("{0:G3}", 1.2345)); 
+                    //Console.WriteLine(string.Format("{0:G}", 12345));
+                    //Console.WriteLine("====================F====================");
+                    //Console.WriteLine(string.Format("{0:F2}",2345.678));
+                    //Console.WriteLine(string.Format("{0:F2}",2345.6));
+                    //Console.WriteLine("====================N====================");
+                    //Console.WriteLine(string.Format("{0:N2}",2345.678));
+                    //Console.WriteLine(string.Format("{0:N2}",2345.6));
+                    //Console.WriteLine("====================D====================");
+                    //Console.WriteLine(string.Format("{0:D5}",123));
+                    //Console.WriteLine(string.Format("{0:D1}",123));
+                    //Console.WriteLine("====================E或e====================");
+                    //Console.WriteLine(string.Format("{0:E}",56789));
+                    //Console.WriteLine(string.Format("{0:e}", 56789));
+                    //Console.WriteLine(string.Format("{0:E2}", 56789));
+                    //Console.WriteLine("====================C====================");
+                    //Console.WriteLine(string.Format("{0:C}",1.2));
+                    //Console.WriteLine(string.Format("{0:C4}",1.2));
+                    //Console.WriteLine("====================P====================");
+                    //Console.WriteLine(string.Format("{0:P}",0.503));
+                    //Console.WriteLine(string.Format("{0:P0}",.503));
+                    //Console.WriteLine("====================X或x====================");
+                    //Console.WriteLine(string.Format("{0:X}",47));
+                    //Console.WriteLine(string.Format("{0:f}",47));
+                    //Console.WriteLine(string.Format("{0:X4}",47));
+                    //Console.WriteLine("====================R或G17====================");
+                    //Console.WriteLine(string.Format("{0:R}",1f/3f));
+                    //Console.WriteLine(string.Format("{0:G17}",1f/3f));
+
+                }
+                {
+                    //NumberStyles
+                    //Console.WriteLine("====================#====================");
+                    //Console.WriteLine(string.Format("{0:.##}",12.345));
+                    //Console.WriteLine(string.Format("{0:.####}",12.345));
+                    //Console.WriteLine("====================0====================");
+                    //Console.WriteLine(string.Format("{0:.00}", 12.345));
+                    //Console.WriteLine(string.Format("{0:.0000}", 12.345));
+                    //Console.WriteLine(string.Format("{0:000.00}", 99));
+                    //Console.WriteLine("====================小数点====================");
+                    //Console.WriteLine("====================组分隔符====================");
+                    //Console.WriteLine(string.Format("{0:#,###,###}", 1234));
+                    //Console.WriteLine(string.Format("{0:0,000,000}", 1234));
+                    //Console.WriteLine("====================倍增符号====================");
+                    //Console.WriteLine(string.Format("{0:#,}", 1000000));
+                    //Console.WriteLine(string.Format("{0:#,,}", 1000000));
+                    //Console.WriteLine("====================指数表示法====================");
+                    //Console.WriteLine(string.Format("{0:0E0}", 1234));
+                    //Console.WriteLine(string.Format("{0:0E+0}", 1234));
+                    //Console.WriteLine(string.Format("{0:0.00E00}", 1234));
+                    //Console.WriteLine(string.Format("{0:0.00e00}", 1234));
+                    //Console.WriteLine("====================转义符====================");
+                    //Console.WriteLine(string.Format(@"{0:\#0}", 50));
+                    //Console.WriteLine("====================字面量字符引号====================");
+                    //Console.WriteLine(string.Format("{0:0'...'}", 50));
+                    //Console.WriteLine("====================分段符====================");
+                    //Console.WriteLine(string.Format("{0:#;(#);zero}", 15));
+                    //Console.WriteLine(string.Format("{0:#;(#);zero}", -5));
+                    //Console.WriteLine(string.Format("{0:#;(#);zero}", 0));
+                }
+                {
+                    //Datetime
+                    //演示第二种方法
+                    string s = DateTime.Now.ToString("o");
+                    Console.WriteLine(s);
+                    DateTime dt1 = DateTime.ParseExact(s, "o", null);
+                    Console.WriteLine(dt1);
+                    DateTime dt2 = DateTime.Parse(s);
+                    Console.WriteLine(dt2);
+                    //枚举的格式字符串
+                    Console.WriteLine(System.ConsoleColor.Red.ToString("g"));//G或g
+                    Console.WriteLine(System.ConsoleColor.Red.ToString("f"));//F或f
+                    Console.WriteLine(System.ConsoleColor.Red.ToString("d"));//D或d
+                    Console.WriteLine(System.ConsoleColor.Red.ToString("x"));//X或x
                 }
             }
         }
