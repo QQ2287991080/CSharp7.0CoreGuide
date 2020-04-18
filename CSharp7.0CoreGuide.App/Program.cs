@@ -78,8 +78,12 @@ namespace CSharp7._0CoreGuide.App
                 //Console.WriteLine(t1.ToString("o"));//指定与文化无关的格式化字符串
                 //Console.WriteLine(DateTime.Parse(t1.ToString("o")));
 
-                FormattingAndParsing.Invoker();
+                //FormattingAndParsing.Invoker();
 
+            }
+            {
+                //操作数字
+                OperateNumber.Invoker();
             }
             Console.ReadKey();
         }
