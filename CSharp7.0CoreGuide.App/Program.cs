@@ -2,6 +2,8 @@
 using Chapter6;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -80,6 +82,27 @@ namespace CSharp7._0CoreGuide.App
 
                 //FormattingAndParsing.Invoker();
 
+            }
+            {
+                //类型转换器
+                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Color));
+                Color beige = (Color)converter.ConvertFromString("Beige");//Color[Beige]
+                Color purple = (Color)converter.ConvertFromString("#800080");//Color[Purple]
+                Color window = (Color)converter.ConvertFromString("Window");//Color[Window]
+
+                {
+                    decimal a = 10;
+                    var b = decimal.GetBits(a);
+                    decimal c = new Decimal(b);
+                    Console.WriteLine(a == c);//true
+                }
+
+                {
+                    var a= DateTime.Now.ToBinary();
+                    var b = BitConverter.GetBytes(a);
+                    var d= new DateTime(a);
+                    var c= DateTime.FromBinary(a);
+                }
             }
             {
                 //操作数字
