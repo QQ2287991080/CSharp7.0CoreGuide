@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -173,17 +174,22 @@ namespace Chapter6
                 {
                     //Datetime
                     //演示第二种方法
-                    string s = DateTime.Now.ToString("o");
-                    Console.WriteLine(s);
-                    DateTime dt1 = DateTime.ParseExact(s, "o", null);
-                    Console.WriteLine(dt1);
-                    DateTime dt2 = DateTime.Parse(s);
-                    Console.WriteLine(dt2);
-                    //枚举的格式字符串
-                    Console.WriteLine(System.ConsoleColor.Red.ToString("g"));//G或g
-                    Console.WriteLine(System.ConsoleColor.Red.ToString("f"));//F或f
-                    Console.WriteLine(System.ConsoleColor.Red.ToString("d"));//D或d
-                    Console.WriteLine(System.ConsoleColor.Red.ToString("x"));//X或x
+                    //string s = DateTime.Now.ToString("o");
+                    //Console.WriteLine(s);
+                    //DateTime dt1 = DateTime.ParseExact(s, "o", null);
+                    //Console.WriteLine(dt1);
+                    //DateTime dt2 = DateTime.Parse(s);
+                    //Console.WriteLine(dt2);
+                    ////枚举的格式字符串
+                    //Console.WriteLine(System.ConsoleColor.Red.ToString("g"));//G或g
+                    //Console.WriteLine(System.ConsoleColor.Red.ToString("f"));//F或f
+                    //Console.WriteLine(System.ConsoleColor.Red.ToString("d"));//D或d
+                    //Console.WriteLine(System.ConsoleColor.Red.ToString("x"));//X或x
+                }
+                {
+                    //操作数字
+                    BigInteger x = 4;
+                    Complex complex = 3;
                 }
             }
         }

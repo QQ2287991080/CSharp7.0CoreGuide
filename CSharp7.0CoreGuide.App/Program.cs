@@ -106,7 +106,8 @@ namespace CSharp7._0CoreGuide.App
             }
             {
                 //操作数字
-                OperateNumber.Invoker();
+                //OperateNumber.Invoker();
+                EnumTest.Invoker();
             }
             Console.ReadKey();
         }
