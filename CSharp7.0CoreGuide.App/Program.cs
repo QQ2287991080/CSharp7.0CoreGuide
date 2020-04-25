@@ -84,30 +84,31 @@ namespace CSharp7._0CoreGuide.App
 
             }
             {
-                //类型转换器
-                TypeConverter converter = TypeDescriptor.GetConverter(typeof(Color));
-                Color beige = (Color)converter.ConvertFromString("Beige");//Color[Beige]
-                Color purple = (Color)converter.ConvertFromString("#800080");//Color[Purple]
-                Color window = (Color)converter.ConvertFromString("Window");//Color[Window]
+                ////类型转换器
+                //TypeConverter converter = TypeDescriptor.GetConverter(typeof(Color));
+                //Color beige = (Color)converter.ConvertFromString("Beige");//Color[Beige]
+                //Color purple = (Color)converter.ConvertFromString("#800080");//Color[Purple]
+                //Color window = (Color)converter.ConvertFromString("Window");//Color[Window]
 
-                {
-                    decimal a = 10;
-                    var b = decimal.GetBits(a);
-                    decimal c = new Decimal(b);
-                    Console.WriteLine(a == c);//true
-                }
+                //{
+                //    decimal a = 10;
+                //    var b = decimal.GetBits(a);
+                //    decimal c = new Decimal(b);
+                //    Console.WriteLine(a == c);//true
+                //}
 
-                {
-                    var a= DateTime.Now.ToBinary();
-                    var b = BitConverter.GetBytes(a);
-                    var d= new DateTime(a);
-                    var c= DateTime.FromBinary(a);
-                }
+                //{
+                //    var a= DateTime.Now.ToBinary();
+                //    var b = BitConverter.GetBytes(a);
+                //    var d= new DateTime(a);
+                //    var c= DateTime.FromBinary(a);
+                //}
             }
             {
                 //操作数字
                 //OperateNumber.Invoker();
-                EnumTest.Invoker();
+                //EnumTest.Invoker();
+                XiangDengBiJiao.Invoker();
             }
             Console.ReadKey();
         }

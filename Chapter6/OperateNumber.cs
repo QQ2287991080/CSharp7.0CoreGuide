@@ -24,9 +24,10 @@ namespace Chapter6
             Console.WriteLine(five);
 
             {
+               
                 //Math
                 Console.WriteLine("==============BigInteger===============");
-                //BigInteger:BigInteger结构体是.NetFramework4.0新增的特殊值类型，它位于System.Numerics.dll的System.Nuerics命名空间中。它可以表示任意大的整数而不会丢失精度。
+                //BigInteger:BigInteger结构体是.NetFramework4.0新增的特殊值类型，它位于System.Numerics.dll的System.Numerics命名空间中。它可以表示任意大的整数而不会丢失精度。
                 System.Numerics.BigInteger twentyfive = 25;
                 Console.WriteLine(twentyfive);
                 System.Numerics.BigInteger googol = System.Numerics.BigInteger.Pow(10, 100);//10的100次方
