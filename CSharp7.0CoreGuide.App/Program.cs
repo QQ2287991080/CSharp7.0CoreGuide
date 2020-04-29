@@ -108,7 +108,8 @@ namespace CSharp7._0CoreGuide.App
                 //操作数字
                 //OperateNumber.Invoker();
                 //EnumTest.Invoker();
-                XiangDengBiJiao.Invoker();
+                //XiangDengBiJiao.Invoker();
+                顺序比较.Invoker();
             }
             Console.ReadKey();
         }

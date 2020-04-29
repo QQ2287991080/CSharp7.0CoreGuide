@@ -68,14 +68,22 @@ namespace Chapter6
                 //泛型的使用
             }
             {
-                //重写IEquatable
+                Console.WriteLine("object.ReferenceEquals");
+                //object.ReferenceEquals
+                StringBuilder builder1 = new StringBuilder();
+                StringBuilder builder2 = new StringBuilder();
+                Console.WriteLine(object.ReferenceEquals(builder1, builder1));//true
+                Console.WriteLine(object.ReferenceEquals(builder1, builder2));//false
+            }
+            {
+                //重写IEquatable<T>
+                Console.WriteLine("重写IEquatable<T>");
                 var time1 = DateTime.Now;
                 Area area = new Area(5,3);
                 Area area2 = new Area(3, 5);
-                Console.WriteLine(area.Equals(area2));
-                Console.WriteLine(area == area2);
+                Console.WriteLine(area.Equals(area2));//true
+                Console.WriteLine(area == area2);//true
                 var time2 = DateTime.Now;
-               
                 Debug.WriteLine("结构体："+(time2 - time1).TotalSeconds);
             }
             {
@@ -111,7 +119,7 @@ namespace Chapter6
             Measure2 = Math.Max(m1, m2);
         }
     }
-        public struct Area : IEquatable<Area>
+    public struct Area : IEquatable<Area>
     {
         public readonly int Measure1;
         public readonly int Measure2;
@@ -152,4 +160,6 @@ namespace Chapter6
         public static bool operator ==(Area a1, Area a2) => a1.Equals(a2);
         public static bool operator !=(Area a1, Area a2) => !a1.Equals(a2);
     }
+
+   
 }
