@@ -1,13 +1,17 @@
-﻿using Chapter4;
+﻿using Chapter14;
+using Chapter4;
 using Chapter6;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using static System.Environment;
 
 namespace CSharp7._0CoreGuide.App
 {
@@ -109,7 +113,47 @@ namespace CSharp7._0CoreGuide.App
                 //OperateNumber.Invoker();
                 //EnumTest.Invoker();
                 //XiangDengBiJiao.Invoker();
-                顺序比较.Invoker();
+                //顺序比较.Invoker();
+                //Console.WriteLine("根目录"+System.Environment.CurrentDirectory);
+                //Console.WriteLine("系统目录"+System.Environment.SystemDirectory);
+                //Console.WriteLine("该进程的命令行"+System.Environment.CommandLine);
+                //Console.WriteLine("获取此本地计算机的 NetBIOS 名称。" + System.Environment.MachineName);
+                //Console.WriteLine("获取当前计算机上的处理器数" + System.Environment.ProcessorCount);
+                //Console.WriteLine("一个包含平台标识符和版本号的对象" + System.Environment.OSVersion);
+                //Console.WriteLine("获取为此环境定义的换行字符串。" + System.Environment.NewLine);
+                //Console.WriteLine("获取当前登录用户"+System.Environment.UserName);
+                //Console.WriteLine("获取一个值，用以指示当前进程是否在用户交互模式中运行" + System.Environment.UserInteractive);
+                //Console.WriteLine("获取与当前用户关联的网络域名。" + System.Environment.UserDomainName);
+                //Console.WriteLine("获取系统启动后经过的毫秒数" + System.Environment.TickCount);
+                //Console.WriteLine("获取当前的堆栈跟踪信息。" + System.Environment.StackTrace);
+                //Console.WriteLine(" 获取映射到进程上下文的物理内存量。" + System.Environment.WorkingSet);
+                //Console.WriteLine("用于显示公共语言运行时版本的对象" + System.Environment.Version);
+                //Console.WriteLine("从当前进程检索环境变量的值" + System.Environment.GetEnvironmentVariable("Path"));
+                //Console.WriteLine("从当前进程检索环境变量的值" + System.Environment.GetEnvironmentVariables());
+                //Console.WriteLine("从当前进程或者从当前用户或本地计算机的 Windows 操作系统注册表项检索所有环境变量名及其值" + System.Environment.GetEnvironmentVariables());
+                //Console.WriteLine("返回桌面的路径" + System.Environment.GetFolderPath(SpecialFolder.Desktop));
+                //AppContext.SetSwitch(@"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\腾讯软件\QQ\腾讯QQ.exe", true);
+                //Console.WriteLine("A".CompareTo("B"));//-1
+                //Console.WriteLine("B".CompareTo("B"));//0
+                //Console.WriteLine("B".CompareTo("A"));//1
+            }
+            {
+                //ProcessStartInfo psi = new ProcessStartInfo
+                //{
+                //    FileName = @"D:\tim\Bin\QQScLauncher.exe",
+                //    //Arguments = "/c ipconfig /all",
+                //    RedirectStandardOutput = true,
+                //    UseShellExecute = false
+                //};
+                //Process process = Process.Start(psi);
+                //string result = process.StandardOutput.ReadToEnd();
+                //Console.WriteLine(result);
+                
+            }
+            {
+           
+                //线程.Invoker();
+                汇合和休眠.本地状态与共享状态();
             }
             Console.ReadKey();
         }

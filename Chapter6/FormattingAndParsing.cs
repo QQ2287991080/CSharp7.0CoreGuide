@@ -106,39 +106,39 @@ namespace Chapter6
 
                 {
                     //数字格式字符串
-                    //Console.WriteLine("数字格式字符串");
-                    //Console.WriteLine("====================G或g====================");
-                    //Console.WriteLine(string.Format("{0:G}", 1.2345)); 
-                    //Console.WriteLine(string.Format("{0:G}", 0.00001)); 
-                    //Console.WriteLine(string.Format("{0:g}", 0.00001)); 
-                    //Console.WriteLine(string.Format("{0:G3}", 1.2345)); 
-                    //Console.WriteLine(string.Format("{0:G}", 12345));
-                    //Console.WriteLine("====================F====================");
-                    //Console.WriteLine(string.Format("{0:F2}",2345.678));
-                    //Console.WriteLine(string.Format("{0:F2}",2345.6));
-                    //Console.WriteLine("====================N====================");
-                    //Console.WriteLine(string.Format("{0:N2}",2345.678));
-                    //Console.WriteLine(string.Format("{0:N2}",2345.6));
-                    //Console.WriteLine("====================D====================");
-                    //Console.WriteLine(string.Format("{0:D5}",123));
-                    //Console.WriteLine(string.Format("{0:D1}",123));
-                    //Console.WriteLine("====================E或e====================");
-                    //Console.WriteLine(string.Format("{0:E}",56789));
-                    //Console.WriteLine(string.Format("{0:e}", 56789));
-                    //Console.WriteLine(string.Format("{0:E2}", 56789));
-                    //Console.WriteLine("====================C====================");
-                    //Console.WriteLine(string.Format("{0:C}",1.2));
-                    //Console.WriteLine(string.Format("{0:C4}",1.2));
-                    //Console.WriteLine("====================P====================");
-                    //Console.WriteLine(string.Format("{0:P}",0.503));
-                    //Console.WriteLine(string.Format("{0:P0}",.503));
-                    //Console.WriteLine("====================X或x====================");
-                    //Console.WriteLine(string.Format("{0:X}",47));
-                    //Console.WriteLine(string.Format("{0:f}",47));
-                    //Console.WriteLine(string.Format("{0:X4}",47));
-                    //Console.WriteLine("====================R或G17====================");
-                    //Console.WriteLine(string.Format("{0:R}",1f/3f));
-                    //Console.WriteLine(string.Format("{0:G17}",1f/3f));
+                    Console.WriteLine("数字格式字符串");
+                    Console.WriteLine("====================G或g====================");
+                    Console.WriteLine(string.Format("{0:G}", 1.2345));
+                    Console.WriteLine(string.Format("{0:G}", 0.00001));
+                    Console.WriteLine(string.Format("{0:g}", 0.00001));
+                    Console.WriteLine(string.Format("{0:G3}", 1.2345));
+                    Console.WriteLine(string.Format("{0:G}", 12345));
+                    Console.WriteLine("====================F====================");
+                    Console.WriteLine(string.Format("{0:F2}", 2345.678));
+                    Console.WriteLine(string.Format("{0:F2}", 2345.6));
+                    Console.WriteLine("====================N====================");
+                    Console.WriteLine(string.Format("{0:N2}", 2345.678));
+                    Console.WriteLine(string.Format("{0:N2}", 2345.6));
+                    Console.WriteLine("====================D====================");
+                    Console.WriteLine(string.Format("{0:D5}", 123));
+                    Console.WriteLine(string.Format("{0:D1}", 123));
+                    Console.WriteLine("====================E或e====================");
+                    Console.WriteLine(string.Format("{0:E}", 56789));
+                    Console.WriteLine(string.Format("{0:e}", 56789));
+                    Console.WriteLine(string.Format("{0:E2}", 56789));
+                    Console.WriteLine("====================C====================");
+                    Console.WriteLine(string.Format("{0:C}", 1.2));
+                    Console.WriteLine(string.Format("{0:C4}", 1.2));
+                    Console.WriteLine("====================P====================");
+                    Console.WriteLine(string.Format("{0:P}", 0.503));
+                    Console.WriteLine(string.Format("{0:P0}", .503));
+                    Console.WriteLine("====================X或x====================");
+                    Console.WriteLine(string.Format("{0:X}", 47));
+                    Console.WriteLine(string.Format("{0:f}", 47));
+                    Console.WriteLine(string.Format("{0:X4}", 47));
+                    Console.WriteLine("====================R或G17====================");
+                    Console.WriteLine(string.Format("{0:R}", 1f / 3f));
+                    Console.WriteLine(string.Format("{0:G17}", 1f / 3f));
 
                 }
                 {
