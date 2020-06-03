@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharp7._0CoreGuide.App
@@ -111,6 +112,9 @@ namespace CSharp7._0CoreGuide.App
                 //XiangDengBiJiao.Invoker();
                 顺序比较.Invoker();
             }
+            Thread t = new Thread(() => Console.WriteLine("开启一个新的线程"));
+            t.Join();
+
             Console.ReadKey();
         }
     }
