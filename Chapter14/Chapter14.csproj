@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7E9B5D53-C3F5-41F7-A0ED-9D82DA7EABB2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>CSharp7._0CoreGuide.App</RootNamespace>
-    <AssemblyName>CSharp7.0CoreGuide.App</AssemblyName>
+    <ProjectGuid>{11196665-81FC-4640-A0D6-294FF0EF430E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chapter14</RootNamespace>
+    <AssemblyName>Chapter14</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,25 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="汇合和休眠.cs" />
+    <Compile Include="线程.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Chapter14\Chapter14.csproj">
-      <Project>{11196665-81FC-4640-A0D6-294FF0EF430E}</Project>
-      <Name>Chapter14</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Chapter4\Chapter4.csproj">
-      <Project>{0AF1BAC2-634C-4DB0-9DFF-32EBD28E2561}</Project>
-      <Name>Chapter4</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Chapter6\Chapter6.csproj">
-      <Project>{314A613C-6053-4642-B6BC-8F2739F6AD54}</Project>
-      <Name>Chapter6</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
