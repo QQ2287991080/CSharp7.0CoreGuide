@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="任务.cs" />
     <Compile Include="汇合和休眠.cs" />
     <Compile Include="线程.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="线程池.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -151,12 +151,17 @@ namespace CSharp7._0CoreGuide.App
                 
             }
             {
-           
+
                 //线程.Invoker();
-                汇合和休眠.本地状态与共享状态();
+                //汇合和休眠.本地状态与共享状态();
+                //信号发送
+                //汇合和休眠.Signaling();
+
+                //线程池
+                //线程池.Invoker();
+
+                任务.Invoker();
             }
-            Thread t = new Thread(() => Console.WriteLine("开启一个新的线程"));
-            t.Join();
 
             Console.ReadKey();
         }

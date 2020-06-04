@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -116,6 +117,32 @@ namespace Chapter14
 
 
 
-
+        /// <summary>
+        /// 提高进程的优先级
+        /// </summary>
+        static void ProcessPriorty()
+        {
+            using (Process p=Process.GetCurrentProcess())
+            {
+                p.PriorityClass = ProcessPriorityClass.High;
+            }   
+        }
+        /// <summary>
+        /// 线程信号发射
+        /// </summary>
+      public  static void Signaling()
+        {
+            var signal = new ManualResetEvent(false);
+            new Thread(() =>
+            {
+                Console.WriteLine("正在等待信号！");
+                signal.WaitOne();//等待信号
+                signal.Dispose();
+                Console.WriteLine("收到信号！");
+            }).Start();
+            Thread.Sleep(2000);
+            signal.Set();
+            Console.WriteLine("打开信号");
+        } 
     }
 }
