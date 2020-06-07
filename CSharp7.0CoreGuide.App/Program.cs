@@ -160,7 +160,9 @@ namespace CSharp7._0CoreGuide.App
                 //线程池
                 //线程池.Invoker();
 
-                任务.Invoker();
+                //任务.InvokerSource();
+
+                异步原则5.Invoker();
             }
 
             Console.ReadKey();

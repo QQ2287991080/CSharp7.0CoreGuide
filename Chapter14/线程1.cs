@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chapter14
 {
-    public class 线程
+    public class 线程1
     {
 
         /*

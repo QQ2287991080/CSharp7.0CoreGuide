@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chapter14
 {
-    public class 线程池
+    public class 线程池3
     {
         public static void Invoker()
         {

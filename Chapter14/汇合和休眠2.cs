@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Chapter14
 {
-    public class 汇合和休眠
+    public class 汇合和休眠2
     {
 
         public static void Invoker()

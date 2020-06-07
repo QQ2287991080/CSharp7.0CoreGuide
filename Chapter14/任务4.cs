@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Chapter14
 {
-    public class 任务
+    public class 任务4
     {
         /*
          *
@@ -80,7 +81,66 @@ namespace Chapter14
             }
         }
 
-        private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        /// <summary>
+        /// 另一种创建任务的方法 TaskCompletionSource 
+        /// </summary>
+        public static void InvokerSource()
+        {
+            /*
+             *TaskCompletionSource可以创建一个任务，但是这种任务并非那种需要执行启动操作并在随后停止的任务；
+             *而是在操作结束或出错时手动创建的“附属任务”。这种非常使用于I/O密集型的工作。它不但可以利用任务所有
+             *的优点（能够传递返回值、异常或延续）而且不需要在操作执行期间阻塞线程。
+             *
+             *
+             *TaskCompletionSource的真正作用是创建一个不绑定线程的任务。
+             */
+            //五秒钟后输入42
+            {
+                var tsc = new TaskCompletionSource<int>();
+
+                new Thread(() => { Thread.Sleep(5000); tsc.SetResult(42); })
+                {
+                    IsBackground = true
+                }.Start();
+
+                var task = tsc.Task;
+                Console.WriteLine(task.Result);
+            }
+            {
+                ///自定义Task.Run方法
+
+                //CustomerRun<int>(() => { Thread.Sleep(5000); throw new NotSupportedException("不支持当前方法"); });
+                //自定义Delay方法
+                CustomerDelay(5000).ContinueWith(p => Console.WriteLine(42));
+            }
+
+        }
+       static Task<TResult> CustomerRun<TResult>(Func<TResult> func)
+        {
+            var tsc = new TaskCompletionSource<TResult>();
+            new Thread(() =>
+            {
+                try
+                {
+                    tsc.SetResult(func());
+                }
+                catch (Exception ex)
+                {
+                    tsc.SetException(ex);
+                }
+            }).Start();
+            return tsc.Task;
+        }
+        static Task CustomerDelay(int seconds)
+        {
+            var tsc = new TaskCompletionSource<object>();
+            var timer = new System.Timers.Timer(seconds) { AutoReset = true };
+            timer.Elapsed += delegate { timer.Dispose(); tsc.SetResult(null); };
+            timer.Start();
+            return tsc.Task;
+        }
+
+        private static void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             throw new NotImplementedException();
         }
