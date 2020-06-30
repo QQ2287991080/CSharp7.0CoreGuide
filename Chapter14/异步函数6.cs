@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Chapter14
 {
-    public class 异步函数6
+    public static class 异步函数6
     {
         /*
          *添加了async修饰符的方法称为异步函数，这是因为它们本身也是异步的。
@@ -60,8 +62,36 @@ namespace Chapter14
                 var process = new Progress<int>();
                 FooProcess(process);
                 process.ProgressChanged += Process_ProgressChanged;
+
+
+                //任务组合器
+
+                //任务中任意一个完成就返回这个任务，
+                Task.WhenAny();
+                //必须所有任务完成之后才返回。
+                Task.WhenAll();
+
+                //var client = new WebClient();
+                //client.DownloadFile("");
+                var client = new HttpClient();
+
+
                 
             }
+        }
+
+        /// <summary>
+        /// 自定义任务组合器
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="result"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
+        public static async Task<TResult> WithTimeOut<TResult>(this Task<TResult> result,TimeSpan timeout)
+        {
+            Task winner = await (Task.WhenAny(result, Task.Delay(timeout)));
+            if (winner != result) throw new TimeoutException();
+            return await result;
         }
 
         private static void Process_ProgressChanged(object sender, int e) => Console.WriteLine(e + "%");
