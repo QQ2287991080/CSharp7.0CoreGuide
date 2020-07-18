@@ -7,7 +7,10 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -163,9 +166,66 @@ namespace CSharp7._0CoreGuide.App
                 //任务.InvokerSource();
 
                 //异步原则5.Invoker();
-                异步函数6.Invoker();
+                //异步函数6.Invoker();
             }
+            {
+                //Console.WriteLine(Directory.GetCurrentDirectory());
+                //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+                //string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                //string netPaht = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
+            }
+            {
+                //IPAddress iP = new IPAddress(new byte[] { 169,254,235,159 });
+                //IPAddress iP1 =  IPAddress.Parse("169.254.235.159");
+                //Console.WriteLine(iP);
+                //Console.WriteLine(iP1);
+                //IPEndPoint iPEndPoint = new IPEndPoint(iP,2080);
+                //Console.WriteLine(iPEndPoint.ToString());
 
+               
+             }
+            {
+                //ServicePointManager.DefaultConnectionLimit = 10;
+                //var count = ServicePointManager.DefaultConnectionLimit;
+                //WebClient webClient = new WebClient();
+                //webClient.Proxy = new WebProxy("https://www.baidu.com/");
+                //var obj= webClient.GetLifetimeService();
+
+                //CookieContainer cookie = new CookieContainer();
+
+
+                //var result = HttpHelper.HttpGet("/api/Default/RedisSet/RedisSet", new Dictionary<string, string> { { "key", "123" } });
+
+                //string json = "{\r\n\"userName\": \"PostJson\"}";
+                //var post = HttpHelper.HttpPostJson("/api/Default/FromBody", json);
+                //Console.WriteLine("application/json==========================" + post);
+
+                //var from = HttpHelper.HttpPostForm("/api/Default/FromRequest", new Dictionary<string, string>() { { "userName", "PostForm" } });
+                //Console.WriteLine("application/x-www-form-urlencoded==========================" + from);
+
+                //FileStream fs = new FileStream("C:/Users/张力/Desktop/角色.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+                //FileStream fs2 = new FileStream("C:/Users/张力/Desktop/角色.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+                //List<Stream> streams = new List<Stream>();
+                //streams.Add(fs);
+                //streams.Add(fs2);
+                //HttpHelper.UpLoadFile mulitp = new HttpHelper.UpLoadFile();
+                //mulitp.Stream = fs;
+                //List<HttpHelper.UpLoadFile> upLoadFiles = new List<HttpHelper.UpLoadFile>() {
+                //    new HttpHelper.UpLoadFile {
+
+                // Stream=fs,
+                //  Name="file[0]",
+                //},
+                //    new HttpHelper.UpLoadFile{
+                // Stream=fs2,
+                // Name="file[1]",
+                //} };
+                //var file = HttpHelper.HttpPostFiles("/api/Default/FileRequest", upLoadFiles);
+                //Console.WriteLine("form-data==========================" + file);
+
+                //测试表单加文件上传
+                //var test = HttpHelper.HttpPostMultipartFormData("/api/Default/FormFileRequest", new Dictionary<string, string>() { { "age", "1" } }, new HttpHelper.UpLoadFile { Stream=fs,Name= "FileOne" });
+            }
             Console.ReadKey();
         }
     }
