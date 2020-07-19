@@ -1,4 +1,5 @@
 ﻿using Chapter14;
+using Chapter17;
 using Chapter4;
 using Chapter6;
 using System;
@@ -11,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -225,6 +227,9 @@ namespace CSharp7._0CoreGuide.App
 
                 //测试表单加文件上传
                 //var test = HttpHelper.HttpPostMultipartFormData("/api/Default/FormFileRequest", new Dictionary<string, string>() { { "age", "1" } }, new HttpHelper.UpLoadFile { Stream=fs,Name= "FileOne" });
+            }
+            {
+                Serializer.Invoker();
             }
             Console.ReadKey();
         }
