@@ -1,5 +1,6 @@
 ﻿using Chapter14;
 using Chapter17;
+using Chapter19;
 using Chapter4;
 using Chapter6;
 using System;
@@ -229,7 +230,10 @@ namespace CSharp7._0CoreGuide.App
                 //var test = HttpHelper.HttpPostMultipartFormData("/api/Default/FormFileRequest", new Dictionary<string, string>() { { "age", "1" } }, new HttpHelper.UpLoadFile { Stream=fs,Name= "FileOne" });
             }
             {
-                Serializer.Invoker();
+                //Serializer.Invoker();
+            }
+            {
+                Fanshe.Invoker();
             }
             Console.ReadKey();
         }
