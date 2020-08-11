@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
@@ -233,7 +234,16 @@ namespace CSharp7._0CoreGuide.App
                 //Serializer.Invoker();
             }
             {
-                Fanshe.Invoker();
+                //Fanshe.Invoker();
+                try
+                {
+
+                    Fanshe.Invoker();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
             }
             Console.ReadKey();
         }
