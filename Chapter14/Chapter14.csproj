@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="任务4.cs" />
+    <Compile Include="同步.cs" />
     <Compile Include="异步函数6.cs" />
     <Compile Include="异步原则5.cs" />
     <Compile Include="汇合和休眠2.cs" />
