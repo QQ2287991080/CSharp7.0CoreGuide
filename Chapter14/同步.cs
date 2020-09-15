@@ -23,10 +23,10 @@ namespace Chapter14
         {
             for (int i = 0; i < 1000; i++)
             {
-                testA();
+                LockTakenTest();
             }
         }
-
+        #region lock语句
         static readonly object _locker = new object();
         static int x = 1, y = 2;
         public static void testA()
@@ -38,6 +38,67 @@ namespace Chapter14
                 x = 0;
             }
         }
-         
+        #endregion
+
+        #region Monitor.Enter and Monitor.Exi
+        /*
+         * Monitor--监控
+         * 事实上C#的lock关键字是包裹在try/finally语句块中的Monitor.Enter和 Monitor.Exit语法糖。
+         */
+        public static void overrideTestA()
+        {
+            Monitor.Enter(_locker);
+            try
+            {
+                if (x != 0) Console.WriteLine(y /= x);
+                x = 0;
+                var b = x / 1;
+            }
+            finally
+            {
+                Monitor.Exit(_locker);
+            }
+        }
+
+        /*
+         * 上述代码在有一个漏洞，如果在Monitor.Enter和try语句之间抛出了异常
+         * 那么锁的状态是不确认的，如果已经获得了锁，那么这个锁将永远无法释放
+         * 因为我们没有机会进入finally释放代码块。
+         * 所以这种情况会造成锁泄露。
+         * 针对这种情况C#4.0 已经CLR4进行了重新设计
+         */
+
+        public static void LockTakenTest()
+        {
+
+            // 升级overridetestA
+            bool lockTaken = false;
+           
+            try
+            {
+                //Monitor.Enter(_locker,ref lockTaken);
+               var isenter= Monitor.TryEnter(_locker, TimeSpan.FromMilliseconds(0.000000000000000000000000000000000000000000000000000000000000001));
+                if (isenter)
+                {
+                    Console.WriteLine("get locked");
+                }
+                if (x != 0) Console.WriteLine(y /= x);
+                x = 0;
+               
+            }
+            finally
+            {
+
+                //if (lockTaken) {
+                //    Monitor.Exit(_locker);
+                //}
+
+                if (lockTaken)
+                {
+                    Monitor.Exit(_locker);
+                }
+            }
+        }
+        #endregion
     }
 }

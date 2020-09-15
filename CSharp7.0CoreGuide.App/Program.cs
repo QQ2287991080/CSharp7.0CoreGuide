@@ -179,7 +179,7 @@ namespace CSharp7._0CoreGuide.App
                     new Thread(() => 同步.Invoker()).Start();
                 }
                 //Thread thread = new Thread(() => 同步.Invoker());
-                
+
                 //Thread thread2 = new Thread(() => 同步.Invoker());
                 //thread.Start();
                 //thread2.Start();
