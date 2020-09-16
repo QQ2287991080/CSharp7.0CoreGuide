@@ -19,12 +19,14 @@ namespace Chapter14
          * 
          */
 
-        public  static void Invoker()
+        public static void Invoker()
         {
-            for (int i = 0; i < 1000; i++)
-            {
-                LockTakenTest();
-            }
+            // Assign();
+            //// Console.WriteLine("what x"+t);
+            // Increment();
+            // Console.WriteLine(t);
+            //syncSet();
+            DieLock();
         }
         #region lock语句
         static readonly object _locker = new object();
@@ -98,6 +100,99 @@ namespace Chapter14
                     Monitor.Exit(_locker);
                 }
             }
+        }
+        #endregion
+        /*
+         *选择同步对象
+         *若一个对象在各个参与线程中都是可见的，那么该对象就可以作为同步对象。但是该对象必须是一个引用类型队形（这是必须满足 的条件）
+         *同步对象通常是私有的（便于封装），而且一般是实例字段或静态字段。同步对象本身也可以是被保护的对象。
+         *
+         *使用锁的时机
+         *若需要访问可写的共享字段，则需要在其周围加锁。
+         *如下例子：
+         *如果不适用锁则可能出现两个问题：
+         *诸如变量自增这类操作并不是原子操作，甚至变量的读写，在某些情况下也不是原子操作。
+         *为了提高性能，编译器、CLR乃至处理器都会调整指令的执行顺序并在cpu的寄存器中缓存变量值。只要这种优化不会影响单线程程序（或者使用锁的多线程程序的）的行为即可。
+         *
+         *使用锁可以避免第二个问题。因为锁会在其前后创建内存栅障，内存栅障就像这些操作的围栏，而指令执行顺序的重排和变量缓存是无法跨越这个围栏的。
+         */
+        #region 
+        static int t;
+        public static void Increment()
+        {
+            lock (_locker)
+            {
+                t++;
+            }
+
+            //t++;
+        }
+        public static void Assign()
+        {
+            lock (_locker)
+            {
+                t = 123;
+            }
+
+            //t = 123;
+        }
+
+        public static void syncSet()
+        {
+            var signal = new ManualResetEvent(false);
+            int x = 0;
+            new Thread(() => { x++; signal.Set(); }).Start();
+            signal.WaitOne();
+            Console.WriteLine(x);
+        }
+
+        #endregion
+
+        #region 嵌套锁
+        /*
+         * 线程可以嵌套的方式锁住同一个对象。
+         */
+        public static void NestedLock()
+        {
+
+            lock (_locker)
+            {
+                Assign();
+            }
+        }
+        #endregion
+        #region 死锁
+
+        /*
+         *  两个线程相互等待对方占用的资源就会使双方都无法执行，从而形成死锁。
+         */
+        static object locker1 = new object();
+        static object locker2 = new object();
+        public static void DieLock()
+        {
+            new Thread(() =>
+            {
+
+                lock (locker1)
+                {
+                    Thread.Sleep(1000);
+                    lock (locker2)
+                    {
+
+                    }
+                }
+            }).Start();
+
+
+            lock (locker2)
+            {
+                Thread.Sleep(1000);
+                lock (locker1)
+                {
+
+                }
+            }
+            Console.WriteLine("xxxxxxxxxxxxxx");
         }
         #endregion
     }

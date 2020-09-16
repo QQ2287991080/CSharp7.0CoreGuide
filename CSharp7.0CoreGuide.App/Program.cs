@@ -173,11 +173,13 @@ namespace CSharp7._0CoreGuide.App
                 //异步函数6.Invoker();
                 //同步.Invoker();
 
-                List<Thread> threads = new List<Thread>();
-                for (int i = 0; i < 1000; i++)
-                {
-                    new Thread(() => 同步.Invoker()).Start();
-                }
+                //List<Thread> threads = new List<Thread>();
+                //for (int i = 0; i < 1000; i++)
+                //{
+                //    new Thread(() => 同步.Invoker()).Start();
+                //}
+
+                同步.Invoker();
                 //Thread thread = new Thread(() => 同步.Invoker());
 
                 //Thread thread2 = new Thread(() => 同步.Invoker());
