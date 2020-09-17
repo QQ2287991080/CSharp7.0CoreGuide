@@ -26,7 +26,13 @@ namespace Chapter14
             // Increment();
             // Console.WriteLine(t);
             //syncSet();
-            DieLock();
+            // DieLock();
+
+           // RunProgram();
+
+            同步 tb = new 同步();
+            tb.Write();
+            tb.Read();
         }
         #region lock语句
         static readonly object _locker = new object();
@@ -75,18 +81,18 @@ namespace Chapter14
 
             // 升级overridetestA
             bool lockTaken = false;
-           
+
             try
             {
                 //Monitor.Enter(_locker,ref lockTaken);
-               var isenter= Monitor.TryEnter(_locker, TimeSpan.FromMilliseconds(0.000000000000000000000000000000000000000000000000000000000000001));
+                var isenter = Monitor.TryEnter(_locker, TimeSpan.FromMilliseconds(0.000000000000000000000000000000000000000000000000000000000000001));
                 if (isenter)
                 {
                     Console.WriteLine("get locked");
                 }
                 if (x != 0) Console.WriteLine(y /= x);
                 x = 0;
-               
+
             }
             finally
             {
@@ -193,6 +199,72 @@ namespace Chapter14
                 }
             }
             Console.WriteLine("xxxxxxxxxxxxxx");
+        }
+        #endregion
+
+        #region Mutex
+        /*
+         * Mutex和C# lock类似，但是它可以支持多个进程。换而言之，Mutex不但可以用于应用程序范围，还可以用于计算机范围。
+         * 在非竞争的情况下获得或释放Mutex需要大约1微秒的时间，比lock慢20倍。
+         * https://docs.microsoft.com/zh-cn/dotnet/api/system.threading.mutex?view=netcore-3.1
+         */
+        public static void RunProgram()
+        {
+            using (var mutex = new Mutex(true, "1"))
+            {
+                if (!mutex.WaitOne(TimeSpan.FromSeconds(3), false))
+                {
+                    Console.WriteLine("Anorther instance of the app is runing bye!");
+                    return;
+                }
+                try
+                {
+                    Console.WriteLine("Running");
+                    Console.ReadLine();
+                }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
+            }
+
+        }
+        #endregion
+
+        #region 不可变对象
+        //不可变对象指内部和外部都不会发生变化的变量
+
+        public class ProgressStatus {
+
+            public readonly int PercentComplete;
+            public readonly string StatusMessage;
+            public ProgressStatus(int percentComplete ,string statusMessage)
+            {
+                PercentComplete = percentComplete;
+                StatusMessage = statusMessage;
+            }
+        }
+
+        ProgressStatus _status;
+        readonly object _statusLock = new object();
+
+        public  void Write()
+        {
+            var status = new ProgressStatus(11, "Go");
+            lock (_statusLock)
+            {
+                _status = status;
+            }
+            Console.WriteLine(status.PercentComplete);
+        }
+        public void Read()
+        {
+            ProgressStatus status;
+            lock (_statusLock)
+            {
+                status = _status;
+            }
+            Console.WriteLine(status.StatusMessage);
         }
         #endregion
     }
