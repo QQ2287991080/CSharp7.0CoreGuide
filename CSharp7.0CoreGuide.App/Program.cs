@@ -1,4 +1,5 @@
 ﻿using Chapter14;
+using Chapter14.非排它锁;
 using Chapter17;
 using Chapter19;
 using Chapter4;
@@ -179,12 +180,21 @@ namespace CSharp7._0CoreGuide.App
                 //    new Thread(() => 同步.Invoker()).Start();
                 //}
 
-                同步.Invoker();
+                {
+                    //同步.Invoker();
+                }
+
                 //Thread thread = new Thread(() => 同步.Invoker());
 
                 //Thread thread2 = new Thread(() => 同步.Invoker());
                 //thread.Start();
                 //thread2.Start();
+
+                {
+
+                    //信号量
+                    TheClub.Main();
+                }
             }
             {
                 //Console.WriteLine(Directory.GetCurrentDirectory());

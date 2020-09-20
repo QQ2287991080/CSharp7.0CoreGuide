@@ -49,6 +49,8 @@
     <Compile Include="线程1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="线程池3.cs" />
+    <Compile Include="非排它锁\NonExcluisveLock.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
