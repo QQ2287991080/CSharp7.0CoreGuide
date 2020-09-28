@@ -193,7 +193,15 @@ namespace CSharp7._0CoreGuide.App
                 {
 
                     //信号量
-                    TheClub.Main();
+                    //TheClub.Main();
+                }
+                {
+                    //非排它锁
+                    // SlimDome.Invoker();
+                    //官网实例
+                    Example.Main();
+
+
                 }
             }
             {
